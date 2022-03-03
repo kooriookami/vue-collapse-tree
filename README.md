@@ -17,6 +17,10 @@ app.use(CollapseTree);
 app.mount("#app");
 ```
 
+## 在线演示
+
+[在线演示](https://kooriookami.github.io/vue-collapse-tree/)
+
 ## 示例代码
 
 [示例代码](src/examples/Example.vue)
