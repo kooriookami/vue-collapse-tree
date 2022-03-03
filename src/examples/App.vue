@@ -37,15 +37,9 @@
 
 <script>
   import { defineComponent } from 'vue';
-  import CollapseTree from '../components/collapse-tree';
-  import CollapseTreeItem from '../components/collapse-tree-item';
 
   export default defineComponent({
     name: 'App',
-    components: {
-      CollapseTree,
-      CollapseTreeItem,
-    },
     data() {
       return {
         line: true,
