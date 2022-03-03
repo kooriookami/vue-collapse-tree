@@ -36,6 +36,7 @@ const buildWebsite = {
 };
 
 export default defineConfig({
+  base: './',
   plugins: [vue()],
   resolve: {
     alias: {
