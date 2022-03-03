@@ -32,7 +32,7 @@ const buildLib = {
 };
 
 const buildWebsite = {
-  outDir: 'dist-website',
+  outDir: 'docs',
 };
 
 export default defineConfig({
