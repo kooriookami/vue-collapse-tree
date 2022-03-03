@@ -1,0 +1,26 @@
+{
+  "name": "vue-collapse-tree",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",
+    "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^1.0.0",
+    "element-resize-detector": "^1.2.4",
+    "mitt": "^3.0.0",
+    "vue": "^3.2.31"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.4",
+    "eslint": "^8.10.0",
+    "eslint-define-config": "^1.2.5",
+    "eslint-plugin-vue": "^8.5.0",
+    "sass": "^1.49.9",
+    "vite": "^2.8.6"
+  }
+}
