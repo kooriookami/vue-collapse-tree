@@ -28,6 +28,14 @@
         type: Number,
         default: 1,
       },
+      indent: {
+        type: Number,
+        default: 40,
+      },
+      iconPlaceholder: {
+        type: Boolean,
+        default: true,
+      },
     },
     setup(props) {
       const erd = ref();

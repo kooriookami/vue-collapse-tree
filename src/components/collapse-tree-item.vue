@@ -23,7 +23,6 @@
 
   export default {
     name: 'CollapseTreeItem',
-    inject: ['collapseTreeKey'],
     components: {
       CaretRight,
     },
@@ -39,7 +38,6 @@
       const item = ref(null);
       const showContent = ref(false);
       const lineHeight = ref(0);
-      const lineWidth = ref(0);
       const itemHeight = ref(0);
       const show = computed(() => props.show);
 
@@ -57,7 +55,6 @@
         const itemRect = instance.vnode.el.getBoundingClientRect();
         if (parentName === 'CollapseTreeItem') {
           lineHeight.value = itemRect.top - parentRect.top - collapseTree.lineOffsetHeight;
-          lineWidth.value = 20;
           itemHeight.value = itemRect.height - collapseTree.lineOffsetTop;
         }
       };
@@ -101,19 +98,22 @@
 
       const itemStyle = computed(() => {
         return {
-          paddingLeft: isFirstItem.value ? '0' : '',
+          paddingLeft: isFirstItem.value ? '0' : `${collapseTree.indent}px`,
           '--line-display': collapseTree.line && !isFirstItem.value ? 'block' : 'none',
           '--line-height': `${lineHeight.value}px`,
-          '--line-width': `${lineWidth.value}px`,
+          '--line-width': `${collapseTree.indent / 2}px`,
+          '--line-left': `${collapseTree.indent / 2}px`,
           '--item-height': `${itemHeight.value}px`,
         };
       });
 
       const iconStyle = computed(() => {
+        const hasSlots = !!slots.default?.();
         return {
-          cursor: slots.default?.() ? 'pointer' : '',
+          cursor: hasSlots ? 'pointer' : '',
           transform: showContent.value ? 'rotate(90deg)' : '',
-          visibility: slots.default?.() ? '' : 'hidden',
+          visibility: hasSlots ? '' : 'hidden',
+          display: hasSlots || collapseTree.iconPlaceholder ? '' : 'none',
         };
       });
 
@@ -139,7 +139,6 @@
 
 <style lang="scss" scoped>
   .collapse-tree-item {
-    padding-left: 40px;
     position: relative;
 
     &:before {
@@ -152,7 +151,7 @@
       border-left: 2px solid #E4E7ED;
       border-bottom: 2px solid #E4E7ED;
       border-bottom-left-radius: 8px;
-      left: 20px;
+      left: var(--line-left);
       bottom: var(--item-height);
     }
 
@@ -160,23 +159,24 @@
       display: flex;
       align-items: flex-start;
       border-radius: 4px;
-      padding: 10px;
-      line-height: 20px;
+      padding: 8px;
+      font-size: 14px;
+      line-height: 24px;
 
       .header-icon {
-        margin-right: 4px;
         flex-shrink: 0;
         color: #909399;
         transition: all 0.3s;
-        height: 20px;
-        width: 20px;
+        height: 24px;
+        width: 24px;
+        font-size: 12px;
         display: flex;
         justify-content: center;
         align-items: center;
 
         .collapse-icon {
-          height: 14px;
-          width: 14px;
+          height: 12px;
+          width: 12px;
         }
       }
 
