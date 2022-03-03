@@ -2,6 +2,25 @@
 
 这是一个基于 Vue3 的折叠层级树。
 
+## 使用说明
+
+```npm i vue-collapse-tree```
+
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+import CollapseTree from "vue-collapse-tree";
+import "vue-collapse-tree/style.css";
+
+const app = createApp(App);
+app.use(CollapseTree);
+app.mount("#app");
+```
+
+## 示例代码
+
+[示例代码](src/examples/Example.vue)
+
 ## Collapse Tree 属性
 
 | 参数                     | 说明      | 类型     | 默认值  |
